@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class Controller {
 
-    @PostMapping(value = "/new/")
-    public String postString(@RequestBody String text) {
-        return text;
+    @PostMapping(value = "/new/{text}")
+    public String postString(@RequestBody String body, @PathVariable String text) {
+        return text + "\n" + body;
     }
 
     @GetMapping(value = "/new/{text}")
